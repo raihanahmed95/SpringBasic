@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <definition name="login" extends="commonTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/authentication/login.jsp" />
+        <put-attribute name="pageTitle" value="Login Here"  />
+    </definition>
+
+    <definition name="logout" extends="commonTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/authentication/logout.jsp" />
+        <put-attribute name="pageTitle" value="Logout Successful"  />
+    </definition>
+
+</tiles-definitions>

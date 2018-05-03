@@ -1,0 +1,94 @@
+body
+{
+    margin: 0%;
+    padding: 0%;
+}
+
+.main-container
+{
+    margin: auto;
+    width:90%;
+    height: auto;
+    background-color: #f2f2f2;
+    /*background-color: aliceblue;*/
+
+}
+
+#head
+{
+    text-align: center;
+    width : 100%;
+    height: 35%;
+    min-height: 10%;
+    /*background-color: #ffffff;*/
+    margin-top: 1%;
+    padding: 0%;
+    background-image: url("../images/spring.jpg");
+    background-repeat: round;
+
+}
+
+#welcome{
+    padding-top: 7%;
+}
+
+#idHome{
+    padding: 2%;
+}
+
+#top-menu
+{
+    height: 32px;
+    width: 100%;
+    margin-top: 0%;
+    padding: 0%;
+    background-color: tomato;
+}
+
+#top-menu ul
+{
+    padding: 0%;
+    margin: 0;
+    height: 100%;
+    list-style-type: none;
+}
+
+#top-menu ul li
+{
+
+    display: block;
+    float:left;
+    border-left: 2px solid #ffffff;
+    height: 100%;
+}
+
+#top-menu ul li a
+{
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px 9px 5px;
+    color: #fff;
+    background-color: #036;
+    display: inline-block;
+    /* margin-top: 4; */
+    /* height: inherit; */
+}
+
+#top-menu ul li a:hover {
+    background-color: #ffff00;
+    color : blue;
+}
+
+
+td{
+    padding: 5px;
+}
+
+.error
+{
+    color : red;
+}
+
+.rows{
+    align-content: center;
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <global-method-security pre-post-annotations="enabled" secured-annotations="enabled" authentication-manager-ref="BasicAuthenticationManager"/>
+
+    <http use-expressions="true" auto-config="true" authentication-manager-ref="BasicAuthenticationManager">
+        <intercept-url pattern="/projectProfile" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/login*" access="permitAll"/>
+        <intercept-url pattern="/" access="permitAll"/>
+        <intercept-url pattern="/register" access="permitAll"/>
+        <intercept-url pattern="/registersuccess" access="permitAll"/>
+        <intercept-url pattern="/home" access="isAuthenticated()"/>
+        <intercept-url pattern="/" access="isAuthenticated()"/>
+        <form-login
+                login-page="/login"
+                default-target-url="/"
+                authentication-failure-url="/login?error=true"
+                authentication-success-handler-ref="baseAuthenticationSuccessProvider"/>
+
+        <logout success-handler-ref="baseLogoutSuccessHandler"/>
+
+        <access-denied-handler error-page="/403"/>
+
+        <session-management>
+            <concurrency-control max-sessions="1"/>
+        </session-management>
+
+    </http>
+
+    <authentication-manager id="BasicAuthenticationManager">
+        <authentication-provider ref="basicAuthenticationProvider">
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="basicAuthenticationProvider" class="raihan.bs23.provider.BasicAuthenticationProvider"/>
+    <beans:bean id="baseAuthenticationSuccessProvider" class="raihan.bs23.provider.BaseAuthenticationSuccessHandler"/>
+    <beans:bean id="baseLogoutSuccessHandler" class="raihan.bs23.provider.BaseLogoutSuccessHandler"/>
+</beans:beans>
